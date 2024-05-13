@@ -1,43 +1,4 @@
-/**
- * jquery.mask.js
- * @version: v1.14.0
- * @author: Igor Escobar
- *
- * Created by Igor Escobar on 2012-03-10. Please report any bug at http://blog.igorescobar.com
- *
- * Copyright (c) 2012 Igor Escobar http://blog.igorescobar.com
- *
- * The MIT License (http://www.opensource.org/licenses/mit-license.php)
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- */
 
-/* jshint laxbreak: true */
-/* global define, jQuery, Zepto */
-
-'use strict';
-
-// UMD (Universal Module Definition) patterns for JavaScript modules that work everywhere.
-// https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js
 (function (factory) {
 
     if (typeof define === 'function' && define.amd) {
@@ -115,8 +76,7 @@
                     }
                     el.data('changed', false);
                 })
-                // it's very important that this callback remains in this position
-                // otherwhise oldValue it's going to work buggy
+
                 .on('blur.mask', function() {
                     oldValue = p.val();
                 })
@@ -218,7 +178,7 @@
                     p.val(newVal);
 
                     if (changeCaret) {
-                        // Avoid adjusting caret on backspace or delete
+                       
                         if (!(keyCode === 8 || keyCode === 46)) {
                             caretPos = p.caretPos(caretPos, currValL, newValL, maskDif);
                         }
@@ -367,9 +327,6 @@
                     el.attr('placeholder' , options.placeholder);
                 }
 
-                // this is necessary, otherwise if the user submit the form
-                // and then press the "back" button, the autocomplete will erase
-                // the data. Works fine on IE9+, FF, Opera, Safari.
                 if (el.data('mask')) {
                   el.attr('autocomplete', 'off');
                 }
@@ -508,8 +465,6 @@
 
     $.jMaskGlobals = $.jMaskGlobals || {};
     globals = $.jMaskGlobals = $.extend(true, {}, globals, $.jMaskGlobals);
-
-    // looking for inputs with data-mask attribute
     if (globals.dataMask) {
         $.applyDataMask();
     }

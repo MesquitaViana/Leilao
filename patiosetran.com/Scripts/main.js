@@ -76,7 +76,6 @@ jQuery(document).ready(function($) {
 			}
 		}) 
 
-		// click outside offcanvas
 		$(document).mouseup(function(e) {
 	    var container = $(".site-mobile-menu");
 	    if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -103,8 +102,6 @@ jQuery(document).ready(function($) {
 			$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) + 1);
 		});
 	};
-	// sitePlusMinus();
-
 
 	var siteSliderRange = function() {
     $( "#slider-range" ).slider({
@@ -119,10 +116,6 @@ jQuery(document).ready(function($) {
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 	};
-	// siteSliderRange();
-
-
-	
 
 	var siteCarousel = function () {
 		if ( $('.nonloop-block-13').length > 0 ) {
@@ -235,7 +228,6 @@ jQuery(document).ready(function($) {
 		});
 				
 	};
-	// siteCountDown();
 
 	var siteDatePicker = function() {
 
@@ -251,7 +243,6 @@ jQuery(document).ready(function($) {
 	};
 	siteSticky();
 
-	// navigation
   var OnePageNavigation = function() {
     var navToggler = $('.site-menu-toggle');
 
@@ -263,7 +254,6 @@ jQuery(document).ready(function($) {
       $('html, body').animate({
         'scrollTop': $(hash).offset().top - 50
       }, 600, 'easeInOutExpo', function() {
-        // window.location.hash = hash;
 
       });
 
